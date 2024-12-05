@@ -11,9 +11,11 @@
 
     <parent>
         <artifactId>spring-openai-client</artifactId>
-        <groupId>com.luba</groupId>
+        <groupId>com.sabirotmane</groupId>
         <version>1.0.2-SNAPSHOT</version>
     </parent>
+
+    <description>A spring boot library for AI integrations with ChatGPT</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

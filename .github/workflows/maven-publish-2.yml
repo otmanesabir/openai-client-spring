@@ -20,16 +20,22 @@ jobs:
 
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'corretto'
+        server-id: central
+        server-username: ${{ secrets.MAVEN_USERNAME }}
+        server-password: ${{ secrets.MAVEN_TOKEN }}
+        gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     - name: Build with Maven
       run: mvn package
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+    - name: Publish to Apache Maven Central
+      run: mvn deploy
       env:
-        ACTOR: ${{ secrets.ACTOR }}
-        TOKEN: ${{ secrets.TOKEN }}
+        MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_TOKEN }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}

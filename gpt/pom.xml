@@ -9,9 +9,11 @@
     <version>1.0.2-SNAPSHOT</version>
     <url>https://www.luba-app.com</url>
 
+    <description>A spring boot library for AI integrations with ChatGPT</description>
+
     <parent>
         <artifactId>spring-openai-client</artifactId>
-        <groupId>com.luba</groupId>
+        <groupId>com.sabirotmane</groupId>
         <version>1.0.2-SNAPSHOT</version>
     </parent>
 
@@ -23,7 +25,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.luba</groupId>
+            <groupId>com.sabirotmane</groupId>
             <artifactId>tokenizer</artifactId>
             <version>1.0.2-SNAPSHOT</version>
         </dependency>

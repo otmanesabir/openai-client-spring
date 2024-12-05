@@ -18,7 +18,7 @@ For Maven:
 
 ```xml
 <dependency>
-    <groupId>com.luba</groupId>
+    <groupId>com.sabirotmane</groupId>
     <artifactId>spring-openai-client</artifactId>
     <version>${luba-openai-client.version}</version>
 </dependency>
@@ -27,7 +27,7 @@ For Maven:
 For Gradle:
 
 ```groovy
-implementation 'com.luba:spring-openai-client:0.0.2'
+implementation 'com.sabirotmane:spring-openai-client:0.0.2'
 ```
 
 ## Configuration
@@ -65,10 +65,10 @@ This library provides an easy-to-use `GPTService` class. Here's an example of ho
 ### Basic Completion
 
 ```java
-import com.luba.gpt.domain.CompletionMessage;
-import com.luba.gpt.domain.CompletionResponse;
-import com.luba.gpt.domain.Role;
-import com.luba.gpt.service.GPTService;
+import com.sabirotmane.gpt.domain.CompletionMessage;
+import com.sabirotmane.gpt.domain.CompletionResponse;
+import com.sabirotmane.gpt.domain.Role;
+import com.sabirotmane.gpt.service.GPTService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ExampleClass {
@@ -97,11 +97,11 @@ In the above example, `prompt` is the input message, `role` is the role in the m
 One can also override the default configuration of the client by passing the full request object with the desired configuration:
 
 ```java
-import com.luba.gpt.domain.CompletionMessage;
-import com.luba.gpt.domain.CompletionRequest;
-import com.luba.gpt.domain.CompletionResponse;
-import com.luba.gpt.domain.Role;
-import com.luba.gpt.service.GPTService;
+import com.sabirotmane.gpt.domain.CompletionMessage;
+import com.sabirotmane.gpt.domain.CompletionRequest;
+import com.sabirotmane.gpt.domain.CompletionResponse;
+import com.sabirotmane.gpt.domain.Role;
+import com.sabirotmane.gpt.service.GPTService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ExampleClass {
@@ -136,11 +136,11 @@ With the introduction of functions to the ChatGPT API, the library gives a progr
 
 ```java
 
-import com.luba.gpt.domain.CompletionMessage;
-import com.luba.gpt.domain.CompletionRequest;
-import com.luba.gpt.domain.CompletionResponse;
-import com.luba.gpt.domain.Role;
-import com.luba.gpt.service.GPTService;
+import com.sabirotmane.gpt.domain.CompletionMessage;
+import com.sabirotmane.gpt.domain.CompletionRequest;
+import com.sabirotmane.gpt.domain.CompletionResponse;
+import com.sabirotmane.gpt.domain.Role;
+import com.sabirotmane.gpt.service.GPTService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ExampleClass {

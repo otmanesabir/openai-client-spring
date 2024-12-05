@@ -4,45 +4,52 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <artifactId>spring-openai-client</artifactId>
-    <groupId>com.luba</groupId>
+    <groupId>com.sabirotmane</groupId>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
+
+    <description>A spring boot library for AI integrations with ChatGPT</description>
 
     <developers>
         <developer>
-            <email>othmane.sabir0@gmail.com</email>
+            <email>me@sabirotmane.com</email>
             <name>Otmane Sabir</name>
-            <organization>Luba</organization>
-            <organizationUrl>https://luba.ai</organizationUrl>
-        </developer>
-        <developer>
-            <name>Florian Weber</name>
             <organization>Luba</organization>
             <organizationUrl>https://luba.ai</organizationUrl>
         </developer>
     </developers>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/luba-ai/openai-client-spring</url>
-        </repository>
-    </distributionManagement>
-
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
-
 
     <modules>
         <module>gpt</module>
         <module>tokenizer</module>
     </modules>
+
+    <scm>
+        <connection>scm:git:https://github.com/otmanesabir/openai-client-spring.git</connection>
+        <developerConnection>scm:git:git@github.com:otmanesabir/openai-client-spring.git
+        </developerConnection>
+        <url>https://github.com/otmanesabir/openai-client-spring.git</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <jackson.version>2.12.5</jackson.version>
@@ -60,12 +67,68 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>
                 <groupId>org.apache.maven.plugins</groupId>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.6.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <checksums>all</checksums>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

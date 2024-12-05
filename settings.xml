@@ -5,9 +5,15 @@
 
     <servers>
         <server>
-            <id>github</id>
-            <username>${ACTOR}</username>
-            <password>${TOKEN}</password>
+            <id>central</id>
+            <username>${env.MAVEN_USERNAME}</username>
+            <password>${env.MAVEN_CENTRAL_TOKEN}</password>
+        </server>
+        <server>
+            <id>gpg.passphrase</id>
+            <passphrase>${env.MAVEN_GPG_PASSPHRASE}</passphrase>
         </server>
     </servers>
 </settings>
+
+
