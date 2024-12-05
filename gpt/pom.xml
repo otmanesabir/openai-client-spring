@@ -6,7 +6,7 @@
 
     <artifactId>gpt</artifactId>
     <name>gpt</name>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <url>https://www.luba-app.com</url>
 
     <description>A spring boot library for AI integrations with ChatGPT</description>
@@ -14,7 +14,7 @@
     <parent>
         <artifactId>spring-openai-client</artifactId>
         <groupId>com.sabirotmane</groupId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
 
     <properties>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.sabirotmane</groupId>
             <artifactId>tokenizer</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 

@@ -6,13 +6,13 @@
 
     <artifactId>tokenizer</artifactId>
     <name>tokenizer</name>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <url>https://www.luba-app.com</url>
 
     <parent>
         <artifactId>spring-openai-client</artifactId>
         <groupId>com.sabirotmane</groupId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
 
     <description>A spring boot library for AI integrations with ChatGPT</description>
