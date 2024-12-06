@@ -72,7 +72,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.1.0</version>
+                <configuration>
+                    <useGpgCmd>true</useGpgCmd>
+                </configuration>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -87,6 +90,8 @@
                                 <arg>--no-tty</arg>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
+                                <arg>--verbose</arg>
+                                <arg>--debug-level=basic</arg>
                             </gpgArguments>
                         </configuration>
                     </execution>
