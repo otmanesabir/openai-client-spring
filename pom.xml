@@ -11,12 +11,14 @@
 
     <description>A spring boot library for AI integrations with ChatGPT</description>
 
+    <url>https://github.com/otmanesabir/openai-client-spring.git</url>
+
     <developers>
         <developer>
             <email>me@sabirotmane.com</email>
             <name>Otmane Sabir</name>
-            <organization>Luba</organization>
-            <organizationUrl>https://luba.ai</organizationUrl>
+            <organization>Sabir Otmane</organization>
+            <organizationUrl>https://sabirotmane.com</organizationUrl>
         </developer>
     </developers>
 
@@ -52,13 +54,13 @@
     </distributionManagement>
 
     <properties>
-        <jackson.version>2.12.5</jackson.version>
+        <jackson.version>2.18.2</jackson.version>
         <json.version>[20230227,)</json.version>
         <junit.version>4.13.2</junit.version>
         <lombok.version>1.18.22</lombok.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <mockwebserver.version>4.11.0</mockwebserver.version>
+        <mockwebserver.version>4.12.0</mockwebserver.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.boot.version>3.1.0</spring.boot.version>
         <spring.version>6.0.10</spring.version>
@@ -66,13 +68,31 @@
 
     <build>
         <plugins>
+            <!-- GPG Signing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Source and Javadoc JARs -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
@@ -82,23 +102,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                </configuration>
-                <groupId>org.apache.maven.plugins</groupId>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.central</groupId>
@@ -109,26 +122,6 @@
                     <publishingServerId>central</publishingServerId>
                     <checksums>all</checksums>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
