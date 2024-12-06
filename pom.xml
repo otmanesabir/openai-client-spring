@@ -81,7 +81,10 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
+                            <useGpgCmd>true</useGpgCmd>
                             <gpgArguments>
+                                <arg>--batch</arg>
+                                <arg>--no-tty</arg>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
